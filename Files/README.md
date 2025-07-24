@@ -6,7 +6,7 @@ This project presents an interactive and advanced Excel analysis with graphical 
 
 ## 📊 Project Objective
 
-To explore how external debt has evolved across low and middle-income countries between 2013 and 202, and assess their debt sustainability through key indicators such as:
+To explore how external debt has evolved across low and middle-income countries between 2013 and 2023, and assess their debt sustainability through key indicators such as:
 - Total external debt
 - Debt-to-GNI ratios
 - Regional and income group comparisons
