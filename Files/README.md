@@ -50,42 +50,50 @@ To explore how external debt has evolved across low and middle-income countries 
 ### 📌 1. Data Cleaning (Power Query)
 - Imported the **International Debt Statistics (IDS)** dataset from an Excel file after downloading from the World Bank, using **Get and Transform Data**.
 - Selected the Data and Country – metadata table and clicked transform to clean the data in the data query editor.
- 
+
+ ![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-06-27%20154926.png)
 - Removed the Counterpart-Area Name and Counterpart-Area Code columns because it was repetitive and not relevant for this analysis. Also removed the columns for the years 1970 – 2000 because it is irrelevant for the purpose of this analysis, and I removed the years 2026 – 2031 because I didn’t want to deal with the forecast for this analysis.
- 
+
+![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-06-27%20160540.png) 
 - Unpivoted wide-format year columns (`1970–2031`) into two tidy columns:  
   ` Year | Value` This makes it easier to analyse the values.
- 
+
+ ![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-06-27%20160755.png)
 - Filtered to retain only relevant indicators:
 I went through the Series – Metadata table and selected 14 out of …series that I found relevant to this analysis. Using the series code, I filtered the series code column, keeping the relevant series. Some of these series include:
   - `DT.DOD.DECT.CD` — *External debt stocks, total (current US$)*
   - `DT.TDS.DECT.CD`— *Total Debt Service (Current US$)*
   - `FI.RES.TOTL.CD` — *Total reserves (current US$)*
- 
+
+ ![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-06-27%20163535.png)
 
 - loaded the `"Country - Metadata"` sheet in the Power Query editor, cleaned the data and filtered the code column for codes that are do not refer to countries or regions.
 
- 
+ ![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-07-11%20141720.png)
 I loaded the data and added it to the data model.
 
-  - Differentiate countries from regions
-  - Add region and income group classifications
 
 
 ### 📌 2. Data Modelling (Power Pivot)
 - Created relationships between:
   - `Debt Data` table and `Country Metadata` table (via `Country Code`)
+    
+   ![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-06-27%20164429.png)
  - Defined key **DAX measures**, such as:
   - `Total Debt (Country)`
- 
+    
+  ![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-07-11%20150943.png)
   - `Total GNI (Region)`
- 
+    
+  ![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-07-11%20151338.png)
   - `Debt-to-GNI Ratio (region)`
- 
+    
+  ![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-07-11%20151434.png)
   - `Debt Service (country)`
- 
+   
 - Created a calculated column (`IsCountry`) to filter region aggregates when needed
- 
+  
+  ![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-07-11%20152555.png)
 
 
 ### 📌 3. Visualisation (PivotTables & Charts)
@@ -100,29 +108,39 @@ Created an Excel dashboard with interactive visuals:
 | `Total Reserves`         | Comparison of debt vs reserve adequacy        |
 
 ---
-
+![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-07-15%20125931.png)
 ## 📊 Key Findings
 
 ### 🔹 Top 10 Debtor Countries
+ 
+ ![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-07-16%20114224.png)
 - Countries like **China**, **India**, **Brazil**, and **Mexico** have the highest external debt in absolute terms.
 - However, high debt does not always imply high vulnerability — income and reserves matter.
 
 ### 🔹 Debt-to-GNI Ratio Insights
+
+ ![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-07-16%20114236.png)
 - The Debt to GNI Ratio has changed over the years. It's a way to assess a nation's ability to manage its debt obligations. 
 - The **East Asia and Pacific** region has the lowest ratio of **17%** which suggests a sustainable debt situation.  **Europe and Central Asia**, followed by **Sub-Saharan** Africa, have the highest ratio of **54%** and **44%** respectively, indicating potential risks. 
 
 ### 🔹 Regional Debt Patterns
+
+ ![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-07-16%20114305.png)
 - **Sub-Saharan Africa** is rapidly accumulating external debt, nearly **doubling** from **2013 to 2023**, indicating rising borrowing needs but also increasing vulnerability to debt distress, especially given weaker economic buffers and reliance on non-concessional loans.
 - **South Asia**’s debt is growing more gradually, suggesting a more stable borrowing pattern led by India, with relatively stronger income and reserves to support
-- The two regions are now separated by less than ~$100B, compared to ~$100B+ in 2013.
+- The two regions are now separated by less than $100B, compared to 0ver $100B in 2013.
 - **Sub-Saharan Africa** saw rapid debt growth post-2010, likely from infrastructure loans and bilateral borrowing.
 - **South Asia**, led by India, saw more stable growth in both debt and GNI.
 
 ### 🔹 Income Group Trends
+
+ ![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-07-16%20114318.png)
 - **Lower-middle income countries** accumulated the largest share of debt, highlighting expanded borrowing access but also greater exposure to repayment challenges.
 - **Upper-middle income **, which contains only china, maintained stronger debt service capabilities.
 
 ### 🔹 Reserves vs Debt
+
+ ![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-07-16%20114344.png)
 - **China and India** hold significantly larger foreign reserves than the rest, with China exceeding **$3.5T**, indicating strong financial buffers to cover external obligations, especially in contrast to their relatively low debt service burden.
 - Countries **like Thailand, Mexico, and Indonesia** maintain modest reserves while managing relatively higher debt service levels, signalling greater liquidity pressure and reduced fiscal flexibility if external shocks or repayment spikes occur.
 ---
@@ -131,7 +149,7 @@ Created an Excel dashboard with interactive visuals:
 ## 🔍 Data Source
 
 - **World Bank International Debt Statistics (IDS)**  
-  [https://datacatalog.worldbank.org/dataset/international-debt-statistics](https://datacatalog.worldbank.org/dataset/international-debt-statistics)
+  [IDS Website](https://datacatalog.worldbank.org/dataset/international-debt-statistics)
 
 This dataset provides country-level data on external debt, debt servicing, lender types, currency composition, and borrower institutions across low and middle-income countries.
 
@@ -141,5 +159,5 @@ This dataset provides country-level data on external debt, debt servicing, lende
 
 1. Open the Excel file `External Debt Analysis.xlsx`
 2. Navigate between the sheets to explore different dimensions of debt analysis
-3. Use slicers and filters in the PivotTables to customize the view by year, region, or income group
+3. Use slicers and filters in the Dashboard to customize the view by year and region
 4. Extend the dashboard by connecting updated IDS datasets
