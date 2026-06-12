@@ -39,10 +39,10 @@ To explore how external debt has evolved across low and middle-income countries 
 ## 📌 Key Questions Answered
 
 1. **Which countries hold the highest external debt?**
-2. **How has the debt-to-GNI ratio evolved across time and regions? **
+2. **How has the debt-to-GNI ratio evolved across time and regions?**
 3. **Are Sub-Saharan African countries accumulating more debt than South Asia?**
 4. **What income level has the highest debt?**
-5. **How do reserves compare to debt service, and what does that say about solvency? **
+5. **How do reserves compare to debt service, and what does that say about solvency?**
 
 
 ## 🔧 Analysis Breakdown
