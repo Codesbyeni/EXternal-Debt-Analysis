@@ -55,12 +55,12 @@ To explore how external debt has evolved across low and middle-income countries 
 - Removed the Counterpart-Area Name and Counterpart-Area Code columns because it was repetitive and not relevant for this analysis. Also removed the columns for the years 1970 – 2000 because it is irrelevant for the purpose of this analysis, and I removed the years 2026 – 2031 because I didn’t want to deal with the forecast for this analysis.
 
 ![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-06-27%20160540.png) 
-- Unpivoted wide-format year columns (`1970–2031`) into two tidy columns:  
+- Unpivoted wide-format year columns into two tidy columns:  
   ` Year | Value` This makes it easier to analyse the values.
 
  ![](https://github.com/Codesbyeni/EXternal-Debt-Analysis/blob/49f233eedf1230a43eb81b2b752db28656fc3c06/Debt%20Analysis%20Git/Screenshot%202025-06-27%20160755.png)
 - Filtered to retain only relevant indicators:
-I went through the Series – Metadata table and selected 14 out of …series that I found relevant to this analysis. Using the series code, I filtered the series code column, keeping the relevant series. Some of these series include:
+I went through the Series – Metadata table and selected 14 out of over 500 series that I found relevant to this analysis. Using the series code, I filtered the series code column, keeping the relevant series. Some of these series include:
   - `DT.DOD.DECT.CD` — *External debt stocks, total (current US$)*
   - `DT.TDS.DECT.CD`— *Total Debt Service (Current US$)*
   - `FI.RES.TOTL.CD` — *Total reserves (current US$)*
